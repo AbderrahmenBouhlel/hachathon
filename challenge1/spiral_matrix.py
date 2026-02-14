@@ -1,12 +1,13 @@
 import random
 
-
 n = 6
+
 matrix = [[random.randint(0, 9) for _ in range(n)] for _ in range(n)]
 
+
+print("Original Matrix:")
 for row in matrix:
     print(row)
-
 
 def spiral_order(matrix):
     n = len(matrix)
