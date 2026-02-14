@@ -1,51 +1,50 @@
 import random
 
-n = 6
+n = 5  # You can change this
 
-matrix = [
-    [1, 2, 3, 4, 5],
-    [76, 77, 78, 79, 6],
-    [75, 76, 75, 71, 7],
-    [74, 73, 72, 77, 8],
-    [73, 71, 11, 10, 9]
-]
+# Create an empty n x n matrix
+matrix = [[0] * n for _ in range(n)]
 
 print("Original Matrix:")
 for row in matrix:
     print(row)
 
-def spiral_order(matrix):
-    n = len(matrix)
-    result = []
+n = 5 # You can change this
 
-    top, bottom = 0, n - 1
-    left, right = 0, n - 1
+matrix = [[0] * n for _ in range(n)]
 
-    while top <= bottom and left <= right:
-        # Traverse top row
-        for col in range(left, right + 1):
-            result.append(matrix[top][col])
-        top += 1
+num = 1
+top, bottom = 0, n - 1
+left, right = 0, n - 1
 
-        # Traverse right column
-        for row in range(top, bottom + 1):
-            result.append(matrix[row][right])
-        right -= 1
+while top <= bottom and left <= right:
+    # Fill top row
+    for col in range(left, right + 1):
+        matrix[top][col] = num
+        num += 1
+    top += 1
 
-        # Traverse bottom row
-        if top <= bottom:
-            for col in range(right, left - 1, -1):
-                result.append(matrix[bottom][col])
-            bottom -= 1
+    # Fill right column
+    for row in range(top, bottom + 1):
+        matrix[row][right] = num
+        num += 1
+    right -= 1
 
-        # Traverse left column
-        if left <= right:
-            for row in range(bottom, top - 1, -1):
-                result.append(matrix[row][left])
-            left += 1
+    # Fill bottom row
+    if top <= bottom:
+        for col in range(right, left - 1, -1):
+            matrix[bottom][col] = num
+            num += 1
+        bottom -= 1
 
-    return result
+    # Fill left column
+    if left <= right:
+        for row in range(bottom, top - 1, -1):
+            matrix[row][left] = num
+            num += 1
+        left += 1
 
+print("Generated Snail Matrix:")
+for row in matrix:
+    print(row)
 
-print("\nSpiral Order:")
-print(spiral_order(matrix))
