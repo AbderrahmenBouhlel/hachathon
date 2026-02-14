@@ -2,8 +2,13 @@ import random
 
 n = 6
 
-matrix = [[random.randint(0, 9) for _ in range(n)] for _ in range(n)]
-
+matrix = [
+    [1, 2, 3, 4, 5],
+    [76, 77, 78, 79, 6],
+    [75, 76, 75, 71, 7],
+    [74, 73, 72, 77, 8],
+    [73, 71, 11, 10, 9]
+]
 
 print("Original Matrix:")
 for row in matrix:
